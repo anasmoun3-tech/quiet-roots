@@ -1,0 +1,26 @@
+{
+  "name": "demo-app",
+  "lockfileVersion": 3,
+  "packages": {
+    "": {
+      "name": "demo-app",
+      "dependencies": { "gateway": "^1.0.0", "worker": "^1.0.0" },
+      "devDependencies": { "test-runner": "^1.0.0" }
+    },
+    "node_modules/gateway": {
+      "version": "1.0.0",
+      "dependencies": { "shared": "^1.0.0" }
+    },
+    "node_modules/worker": {
+      "version": "1.0.0",
+      "dependencies": { "shared": "^1.0.0", "parser": "^1.0.0" }
+    },
+    "node_modules/shared": { "version": "1.0.0" },
+    "node_modules/parser": { "version": "1.0.0" },
+    "node_modules/test-runner": {
+      "version": "1.0.0",
+      "dependencies": { "parser": "^2.0.0" }
+    },
+    "node_modules/test-runner/node_modules/parser": { "version": "2.0.0" }
+  }
+}

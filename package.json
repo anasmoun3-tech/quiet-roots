@@ -1,0 +1,10 @@
+{
+  "name": "quiet-roots",
+  "version": "0.1.0",
+  "description": "Explain which npm dependencies your project relies on and why.",
+  "type": "module",
+  "bin": { "quiet-roots": "./bin/quiet-roots.mjs" },
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test", "demo": "node bin/quiet-roots.mjs scan examples/package-lock.example.json" },
+  "files": ["bin", "src", "README.md"]
+}
