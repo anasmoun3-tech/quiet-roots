@@ -37,6 +37,17 @@ Commit a policy file to the project you want to track and run `check` in CI. All
 | `maxDuplicateNames` | Package names with more than one reachable version. |
 | `maxUnresolved` | Unresolved declarations, excluding optional dependencies and optional peers. |
 
+## Review a lockfile change
+
+From the project you want to inspect, save the base branch's lockfile and compare it with the current checkout. Replace `origin/main` with your pull request's base branch if it differs.
+
+```sh
+git show origin/main:package-lock.json > before-lock.json
+quiet-roots diff before-lock.json package-lock.json --production
+```
+
+A changed location can keep the same version while becoming reachable through another direct dependency. Run `quiet-roots why <package-name> --production` to see a path to each matching location in the current lockfile.
+
 ## Scope
 
 Quiet Roots analyzes npm lockfiles using format v2 or v3. It follows nested installs, hoisted dependencies, peers, and local links recorded in the lockfile. It models the recorded graph, so optional packages can appear even on platforms where npm would skip their installation. It does not query registries or inspect the installed filesystem. Counts measure graph structure and do not score package quality, security, or maintainer health.
